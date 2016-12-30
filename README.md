@@ -4,9 +4,9 @@ Command line app to create and validate Hashcash time stamps
 
 ## Building
 
-```swift build```
+```$ swift build```
 
-## Usage
+## Options
 
 ```
 $ .build/debug/hashcash-cli
@@ -25,3 +25,22 @@ Usage: .build/debug/hashcash-cli [options]
   -t, --timestamp:
       Check a timestamp for validity.
 ```
+
+## Example usage
+
+Creating stamp
+
+```
+$ .build/debug/hashcash-cli -o create -b 12 -r hello
+
+1:12:161230:hello::ZKYMVTdI/XSnosiX:60D
+```
+
+Validating stamp
+
+```
+$ .build/debug/hashcash-cli -o validate -b 12 -s "1:12:161230:hello::ZKYMVTdI/XSnosiX:60D"
+
+true
+```
+
