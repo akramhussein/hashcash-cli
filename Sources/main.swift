@@ -68,6 +68,9 @@ switch op.value! {
 			exit(EX_USAGE)
 		}
 
-		let ts = timestamp.value ?? 0
-		print(check(stamp: s, resource: resource.value, bits: collisionBits, expiration: UInt(ts)))
+		if let ts = timestamp.value {
+			print(check(stamp: s, resource: resource.value, bits: collisionBits, expiration: UInt(ts)))
+		} else {
+			print(check(stamp: s, resource: resource.value, bits: collisionBits))
+		}
 }
